@@ -18,8 +18,12 @@ tic
 C3 = matmat1b(A,B,M,N,P)
 toc
 
+C = A*B //Appel direct de BLAS3
+
 disp("C1 :", C1)
 
 disp("C2 :", C2)
 
 disp("C3 :", C3)
+
+disp("C3 :", C)
