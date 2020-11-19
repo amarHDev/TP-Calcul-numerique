@@ -1,10 +1,35 @@
-r=rand(3,3) //Crée une matrice de dimension 3,3 avec la fonction rand
-disp(r)
+function []= jouet(n)    
+    
+    A=rand(n,n) //Crée une matrice de dimension 3,3 avec la fonction rand
+    disp(A)
+    xex = rand(n,1) //Remplir un vecteur colonne avec la fonction rand()
+    disp(xex)
+    b = A * xex //b = A * xex
+    disp("Le vecteur obtenu b :",b)
+    
+    x = A\b //résolution du système
+    
+    //Calcul erreur avant
+    frelres = norm(x-xex)/norm(xex)
+    disp("Erreur avant :",frelres)
+    
+    //Calcul erreur arriere
+    brelres = norm(b-(A*x))/norm(b)
+    disp("Erreur arriere :",brelres)
+    
+    //Calcul du conditionnement
+    disp("conditionnement de A :",cond(A))
+    
+    disp("conditionnement de A*erreur arriere :",cond(A)*brelres)
+     
+ endfunction
 
-//Remplir un vecteur colonne avec la fonction rand()
-xex = rand(3,1)
-disp(xex)
 
-//b = A * xex
-b = A * xex
-disp("Le vecteur obtenu b :",b)
+
+
+
+
+
+
+
+
