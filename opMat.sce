@@ -16,7 +16,7 @@ function [C] = matmat3b(A,B,M,N,P)
 endfunction
 
 
-function [C] = matmat2b(A,B,M,N,P)
+function [C] = matmat2b(A,B,M,N,P);
     m=M
     n=N
     p=P
@@ -25,7 +25,7 @@ function [C] = matmat2b(A,B,M,N,P)
     
     for i=1:1:m
         for j=1:1:n          
-                C(i,j) = A(i,:) * B(:,j) + C(i,j)
+                C(i,j) = A(i,:) * B(:,j) + C(i,j);
         end
     end
     
@@ -40,7 +40,7 @@ function [C] = matmat1b(A,B,M,N,P)
     C=zeros(m,n);
     
     for i=1:1:m
-                C(i,:) = A(i,:) * B + C(i,:)
+                C(i,:) = A(i,:) * B + C(i,:);
     end
     
 endfunction
