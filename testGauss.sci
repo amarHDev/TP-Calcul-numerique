@@ -1,7 +1,7 @@
 s = 100
 rand("seed")
 
-n=10
+n=100
 
 U=rand(n,n);//Ici on génère une matrice carée avec des nombre aléatoires
 
