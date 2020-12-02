@@ -6,7 +6,7 @@ U_berrorb = zeros(10);
 L_ferrorb = zeros(10);
 L_berrorb = zeros(10);
 
-xdata = [10:10:10000];
+xdata = [10:10:1000];
 
 for n = xdata
     
@@ -33,7 +33,7 @@ for n = xdata
  end   
   
     xtitle("Erreur méthode de remonté vs méthode de descente"); 
-    plot2d(xdata,[log(U_ferrorb) log(U_berrorb) log(L_ferrorb) log(L_berrorb)],[3 5 2 4],leg="U_ferrorb @ U_berrorb @ L_ferrorb @ L_berrorb");
+    plot2d(xdata,[log(U_ferrorb) log(U_berrorb) log(L_ferrorb) log(L_berrorb)],[3 5 2 4],leg="U_ferrorb ( Erreur avant de usolve) @ U_berrorb ( Erreur arrière de usolve ) @ L_ferrorb ( Erreur avant de lsolve ) @ L_berrorb ( Erreur arrière de lsolve )");
     xlabel("Taille matrice (n)");
     ylabel("Valeurs erreurs");
    
