@@ -8,6 +8,8 @@ function [L,U] = Mylu1(A,n)
    U=triu(A)
 endfunction
 
+/////////////////////////////////////////////////////////////////////////////////////
+
 function [L,U] = mylu3b(A)
     n=size(A,1);
     for k=1:n-1
