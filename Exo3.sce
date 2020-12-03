@@ -1,29 +1,46 @@
-M= 3
-N= 3
-P= 3
+//n = 100;
+xdata = [10:10:100];
+for n = xdata;
+i=n/10;
+
+A=rand(n,n);
+B=rand(n,n);
+
+tic();
 
 
-A=rand(M,N)
-B=rand(M,N)
+C3B= matmat3b(A,B);
 
-tic
-C1 = matmat3b(A,B,M,N,P)
-toc
 
-tic
-C2 = matmat2b(A,B,M,N,P)
-toc
 
-tic
-C3 = matmat1b(A,B,M,N,P)
-toc
+times1(i) = toc()
 
-C = A*B //Appel direct de BLAS3
 
-disp("C1 :", C1)
+tic();
 
-disp("C2 :", C2)
+C2B= matmat2b(A,B);
 
-disp("C3 :", C3)
 
-disp("C3 :", C)
+times2(i) = toc()
+
+tic();
+
+C1B= matmat1b(A,B);
+
+
+times3(i) = toc()
+
+tic();
+
+Cnorm=A*B;
+
+
+times4(i) = toc()
+
+end
+
+
+    xtitle("Comparaison temps execution des différent dotprod"); 
+    subplot(2,2,1),plot2d(xdata,times1,3,leg="matmat3b"),subplot(2,2,2),plot2d(xdata,times2,4,leg="matmat2b");,subplot(2,2,3),plot2d(xdata,times3,5,leg="matmat1b");,subplot(2,2,4),plot2d(xdata,times4,2,leg="Produit mat*mat de Scilab");
+    xlabel("Taille matrice (n)");
+    ylabel("Temps execution");
